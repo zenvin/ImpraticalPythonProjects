@@ -3,9 +3,22 @@ import sys
 import random
 
 ##get input
-non_pig_word = str(input("Please enter a word to be converted into pig latin:"))
-new_non_pig_word = non_pig_word.split()
-print(new_non_pig_word)
+
+VOWELS = 'aeiouy'
+
+while True:
+    word = input("Type a word and get its pig Latin translation: ")
+
+    if word[0] in VOWELS:
+        pig_Latin = word + 'way'
+    else:
+        pig_Latin = word[1:] + word[0] + 'ay'
+    print()
+    print("{}".format(pig_Latin), file=sys.stderr)
+
+    try_again = input("\n\nTry again? (Press Enter else n to stop)\n ")
+    if try_again.lower() == "n":
+        sys.exit()
 ## if input start with a vowel do the following:
 ##      add "way" to the end of the word
 
